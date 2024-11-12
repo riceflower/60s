@@ -13,6 +13,10 @@ jobs:
       - name: 安装python环境
         uses: actions/setup-python@v3
         
+      - name: 安装依赖
+        run: |
+           pip install requests
+        
       - name: 开始推送
         env:
           wpush_apikey: ${{ secrets.WPUSH_APIKEY }} # wpush apikey
@@ -20,5 +24,4 @@ jobs:
           type: ${{ secrets.TYPE }}
           channel: ${{ secrets.CHANNEL }}
         run: |
-          pip install -r requirements.txt
           python 60s.py
