@@ -2,7 +2,7 @@ name: 每日早报定时推送
 on:
   workflow_dispatch:
   schedule:
-    - cron: "52 13 * * *" # 每天早上8点推送
+    - cron: "0 8 * * *" # 每天早上8点推送
 jobs:
   push:
     runs-on: ubuntu-latest
@@ -12,11 +12,7 @@ jobs:
 
       - name: 安装python环境
         uses: actions/setup-python@v3
-
-      - name: 安装依赖
-        run: |
-          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-
+        
       - name: 开始推送
         env:
           wpush_apikey: ${{ secrets.WPUSH_APIKEY }} # wpush apikey
@@ -24,4 +20,5 @@ jobs:
           type: ${{ secrets.TYPE }}
           channel: ${{ secrets.CHANNEL }}
         run: |
+          pip install -r requirements.txt
           python 60s.py
