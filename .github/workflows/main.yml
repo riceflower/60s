@@ -19,8 +19,8 @@ jobs:
         
       - name: 开始推送
         env:
-          wpush_apikey: ${{ secrets.WPUSH_APIKEY }} # wpush apikey
-          alapi_token: ${{ secrets.ALAPI_TOKEN }}
+          wpush_apikey: ${{WPUSHXpKXYXzgaQ0rcrDcR94YC8p77JK}} # wpush apikey
+          alapi_token: ${{Lh8PzTMgnuzsbfjj}}
           type: ${{ secrets.TYPE }}
           channel: ${{ secrets.CHANNEL }}
         run: |
